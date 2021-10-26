@@ -1,7 +1,7 @@
 const { post, user } = require("../../models");
 
 module.exports = async (req, res) => {
-  //페이지네이션
+  //페이지네이션 옵션
   let limit = req.query.limit || 30;
   let offset = req.query.offset || 0;
 
@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
       limit,
       offset,
     });
-    // 요청사항에 맞게 가공하여 응답
+    // 클라 요청사항에 맞게 가공하여 응답
     rows.forEach((post) => {
       post.dataValues.author = post.dataValues.author.name;
     });

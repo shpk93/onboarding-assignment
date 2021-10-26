@@ -7,7 +7,6 @@ const { sequelize } = require("./models");
 const app = express();
 const port = 3000;
 
-sequelize.sync({ alter: true });
 app.use(express.json());
 app.use(
   cors({
@@ -36,5 +35,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
+  sequelize.sync();
   console.log(`서버가 ${port}번에서 작동중입니다.`);
 });

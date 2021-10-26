@@ -1,5 +1,5 @@
 const { user } = require("../../models");
-const { generateAccessToken } = require("../tokenFunctions");
+const { generateAccessToken } = require("../../utils/tokenFunctions");
 
 module.exports = async (req, res) => {
   let { name, email, password } = req.body;
@@ -21,11 +21,13 @@ module.exports = async (req, res) => {
         name,
       },
     });
+    //이미 중복된 이메일이 가입되어있을때 응답
     if (!created) {
       return res
         .status(409)
         .json({ message: "this email has already been registered" });
     }
+
     delete userInfo.dataValues.password;
     const accessToken = generateAccessToken(userInfo.dataValues);
     res

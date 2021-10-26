@@ -1,9 +1,13 @@
 const { user } = require("../../models");
-const { generateAccessToken, sendAccessToken } = require("../tokenFunctions");
+const { generateAccessToken } = require("../../utils/tokenFunctions");
 
 module.exports = async (req, res) => {
   let { email, password } = req.body;
-
+  if (!email || !password) {
+    return res
+      .status(422)
+      .json({ message: "insufficient parameters supplied" });
+  }
   try {
     const userInfo = await user.findOne({
       where: {

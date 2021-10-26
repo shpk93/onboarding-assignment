@@ -1,4 +1,4 @@
-const { isAuthorized } = require("../tokenFunctions");
+const { isAuthorized } = require("../../utils/tokenFunctions");
 
 module.exports = async (req, res) => {
   const userInfo = await isAuthorized(req);
