@@ -15,10 +15,10 @@ module.exports = async (req, res) => {
     const [userInfo, created] = await user.findOrCreate({
       where: {
         email,
-        password,
       },
       defaults: {
         name,
+        password,
       },
     });
     //이미 중복된 이메일이 가입되어있을때 응답
