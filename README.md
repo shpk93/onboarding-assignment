@@ -40,7 +40,7 @@ root-endpoint : ```http://localhost:3000```
 | ------ | ---------- | ------------------------------------------------------------------------ |
 | GET   | `/posts`  | 전체 게시물 조회                                          |
 | GET   | `/posts/:id`  | 게시물 상세 조회                              |
-| POST    | `posts` | 게시물 작성                                                             |
-| DELETE    | `posts/:id`    | 게시물 삭제                          |
-| PATCH    | `posts/:id`    | 게시물 수정                          |
+| POST    | `/posts` | 게시물 작성                                                             |
+| DELETE    | `/posts/:id`    | 게시물 삭제                          |
+| PATCH    | `/posts/:id`    | 게시물 수정                          |
 
